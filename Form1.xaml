@@ -1,0 +1,193 @@
+<Window x:Class="DBEditor.Form1"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Ext="clr-namespace:Ext"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:local="clr-namespace:DBEditor" mc:Ignorable="d" 
+	Title="DBEditor by LaughingMan" Height="495" Width="932" Icon="LC.ico" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl x:Name="tabControl1" Height="424" Width="897" Margin="10,10,17,30">
+            <TabItem Header="MySQL" Margin="-2,0">
+                <Grid Background="#FFE5E5E5" Margin="-2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="71*"/>
+                        <ColumnDefinition Width="18*"/>
+                        <ColumnDefinition Width="109*"/>
+                        <ColumnDefinition Width="13*"/>
+                        <ColumnDefinition Width="680*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Name="label25" Height="23" Width="58" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="10" Margin="25,201,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2" >DB_AUTH</Label>
+                    <Label Name="label24" Height="21" Width="78" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="9" Margin="25,160,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.045,0.154" Grid.ColumnSpan="3" >DB</Label>
+                    <Label Name="label23" Height="19" Width="64" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="8" Margin="25,116,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" >Password</Label>
+                    <Label Name="label22" Height="21" Width="38" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="7" Margin="25,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Login</Label>
+                    <Label Name="label21" Height="18" Width="23" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="6" Margin="25,27,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >IP</Label>
+                    <TextBox x:Name="authtextb" Height="20" Width="100" TabIndex="5" Margin="25,221,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" />
+                    <TextBox x:Name="dbtextb" Height="20" Width="100" TabIndex="4" Margin="25,181,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" />
+                    <TextBox Name="passwdtextb" Height="20" Width="100" TabIndex="3" Margin="25,135,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" />
+                    <TextBox Name="logintextb" Height="20" Width="100" TabIndex="2" Margin="25,91,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" />
+                    <TextBox x:Name="iptextb" Height="20" Width="100" TabIndex="1" Margin="25,45,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="3" />
+                    <Button Name="connectionButton" Height="33" Width="92" TabIndex="0" Margin="25,0,0,99" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.ColumnSpan="3" >Подключиться</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Аккаунты" Margin="1,0,-5,0">
+                <Grid Background="#FFE5E5E5" Margin="-2,-2,-3,-3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="114*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="LoginBox" Height="20" Width="88" TabIndex="0" IsEnabled="False" Margin="6,39,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="lawilas805" />
+                    <Button Name="button_ban" Height="33" Width="95" TabIndex="3" Margin="235.134,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Grid.Column="1" >В бан</Button>
+                    <ListBox Name="listBox1" Height="232" Width="114" TabIndex="4" IsEnabled="False" Margin="2,153,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" SelectionChanged="listBox1_SelectedIndexChanged" />
+                    <Button Name="activatebutton" Height="45" Width="110" TabIndex="5" Visibility="Hidden" IsEnabled="False" Margin="0,0,32,32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" >Активировать статистику</Button>
+                    <Label Name="label2" Height="21" Width="103" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="6" Margin="0,3,161,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" >Золото на сервере</Label>
+                    <Label Name="totalgoldlabel" Height="24" Width="79" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="7" Margin="0,3,44,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" >000000000000</Label>
+                    <Label Name="label3" Height="26" Width="33" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="8" Margin="6,106,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Ник</Label>
+                    <TextBox Name="nicknamebox" Height="20" Width="88" TabIndex="9" IsEnabled="False" Margin="6,128,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="label20" Height="19" Width="67" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="34" Margin="5,62,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >ID аккаунта</Label>
+                    <TextBox Name="acc_id_textb" Height="20" Width="88" TabIndex="33" IsEnabled="False" Margin="5,81,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="acc_bun" Height="24" Width="54" FontSize="7.8" Visibility="Hidden" FontFamily="Microsoft Sans Serif" TabIndex="32"  Foreground="Red" Margin="0,0,239,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" >ЗАБАНЕН</Label>
+                    <Button Name="accinfo" Height="33" Width="90" TabIndex="14" Visibility="Hidden" IsEnabled="False" Margin="30,0,0,44" HorizontalAlignment="Left" VerticalAlignment="Bottom" >О персе</Button>
+                    <Button Name="unban_button" Height="33" Width="95" TabIndex="44" Margin="102.134,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Grid.Column="1" >Разбан</Button>
+                    <TextBox Name="carm_box" Height="20" Width="37" TabIndex="43" Margin="330.134,101,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.Column="1" />
+                    <TextBox Name="kill_box" Height="20" Width="37" TabIndex="42" Margin="330.134,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.Column="1" />
+                    <Label Name="label19" Height="20" Width="40" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="41" Margin="275.134,101,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >Карма</Label>
+                    <Label Name="label18" Height="21" Width="50" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="40" Margin="275.134,71,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >Убийств</Label>
+                    <TextBox Name="dex_box" Height="20" Width="33" TabIndex="39" Margin="232.134,0,0,162" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Grid.Column="1" />
+                    <TextBox Name="int_box" Height="20" Width="29" TabIndex="38" Margin="330.134,0,0,202" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.517,0.45" IsEnabled="False" Grid.Column="1" />
+                    <TextBox Name="con_box" Height="20" Width="29" TabIndex="37" Margin="330.134,0,0,162" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Grid.Column="1" />
+                    <TextBox Name="str_box" Height="20" Width="33" TabIndex="36" Margin="232.134,0,0,200" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Grid.Column="1" />
+                    <Label Name="label17" Height="20" Width="36" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="35" Margin="275.134,0,0,162" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" >Тело</Label>
+                    <Label Name="label16" Height="20" Width="65" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="34" Margin="270.134,0,0,200" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" >Интеллект</Label>
+                    <Label Name="label15" Height="20" Width="54" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="33" Margin="182.134,0,0,162" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" >Ловкость</Label>
+                    <Label Name="label14" Height="20" Width="38" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="32" Margin="182.134,0,0,200" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" >Сила</Label>
+                    <Label Name="char_bun" Height="17" Width="52" FontSize="7.8" Visibility="Hidden" FontFamily="Microsoft Sans Serif" TabIndex="31"  Foreground="Red" Margin="0,64,229,0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" >ЗАБАНЕН</Label>
+                    <Label Name="label13" Height="20" Width="28" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="30" Margin="121,294,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >IP</Label>
+                    <TextBox Name="IPtextBox" Height="20" Width="100" TabIndex="29" Margin="169,294,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <Label Name="job" Height="20" Width="37" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="28" Margin="177.134,136,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >12121</Label>
+                    <TextBox Name="root_level" Height="20" Width="25" TabIndex="26" Margin="330.134,131,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.Column="1" />
+                    <Label Name="label12" Height="23" Width="76" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="25" Margin="250.134,132,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.105"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform> Уровень прав
+                    </Label>
+                    <Button Name="refreshbutton" Height="33" Width="95" TabIndex="24" Margin="174,0,0,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsEnabled="False" Grid.ColumnSpan="2" >Обновить</Button>
+                    <TextBox Name="chanelbox" Height="20" Width="25" TabIndex="23" Margin="234.134,101,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.Column="1" />
+                    <TextBox Name="zonebox" Height="20" Width="25" TabIndex="22" Margin="234.134,71,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.Column="1" />
+                    <Label Name="chanellabel" Height="20" Width="38" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="21" Margin="182.134,104,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >Канал</Label>
+                    <Label Name="zonelabel" Height="22" Width="32" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="20" Margin="182.134,76,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >Зона</Label>
+                    <Label Name="statuslabel" Height="22" Width="60" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="19" Foreground="Red" Margin="241.134,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >Оффлайн</Label>
+                    <Label Name="label11" Height="22" Width="46" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="18" Margin="190.134,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-0.024,0.636" Grid.Column="1" >Статус</Label>
+                    <Label Name="label10" Height="26" Width="116" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="17" Margin="81.134,257,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" >%</Label>
+                    <TextBox Name="goldbox" Height="20" Width="100" TabIndex="16" Margin="169,254,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <Label Name="label9" Height="20" Width="36" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="15" Margin="121,254,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Голд</Label>
+                    <TextBox Name="emailtextbox" Height="20" Width="100" TabIndex="14" Margin="169,214,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <TextBox Name="cashtextbox" Height="20" Width="100" TabIndex="13" Margin="169,173,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <TextBox Name="lvltextbox" Height="20" Width="84" TabIndex="12" Margin="185,136,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <TextBox Name="nicktextbox" Height="20" Width="100" TabIndex="11" Margin="169,104,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <TextBox Name="idtextbox" Height="20" Width="100" TabIndex="10" Margin="169,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Grid.ColumnSpan="2" />
+                    <Label Name="label8" Height="19" Width="42" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="9" Margin="121,214,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Почта</Label>
+                    <Label Name="label7" Height="19" Width="37" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="8" Margin="121,179,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Шоп</Label>
+                    <Label Name="label6" Height="20" Width="49" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="7" Margin="121,136,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Уровень</Label>
+                    <Label Name="label5" Height="25" Width="27" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="6" Margin="121,104,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >Ник</Label>
+                    <Label Name="label4" Height="21" Width="24" FontSize="10" FontFamily="Microsoft Sans Serif" TabIndex="5" Margin="121,71,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >ID</Label>
+                    <Label x:Name="label1" Height="24" Width="55" FontFamily="Microsoft Sans Serif" TabIndex="1" Margin="5,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Логин" FontSize="10" />
+                    <Button x:Name="button_findout" Height="33" Width="92" TabIndex="18" IsEnabled="False" Margin="142,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Найти в базе" Grid.ColumnSpan="2" />
+                    <Image x:Name="job_image" HorizontalAlignment="Left" Height="126" Margin="478.134,64,0,0" VerticalAlignment="Top" Width="76" Source="Resources/none.jpg" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Экономика" HorizontalAlignment="Left" Height="20" VerticalAlignment="Bottom" Width="77" Margin="4,0,-4,0">
+                <Grid Background="#FFE5E5E5" Margin="-2">
+                    <DataGrid x:Name="dataGridView1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="376" Width="191" IsEnabled="False"/>
+                    <Button x:Name="chaos_stone_button" 
+                         Content="" HorizontalAlignment="Left" Margin="248,57,0,0" VerticalAlignment="Top" Width="31" Height="28" Click="Button_Click" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/chaos_stone.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="dar_op_button" Content="" HorizontalAlignment="Left" Height="28" Margin="303,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/dar_op.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="exp_elexir_button" Content="" HorizontalAlignment="Left" Height="28" Margin="248,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/exp_elexir.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="gods_stone_button" Content="" HorizontalAlignment="Left" Height="28" Margin="303,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/gods_stone.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="good_gods_stone_button" Content="" HorizontalAlignment="Left" Height="28" Margin="361,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/good_god_stone.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="iris_button" Content="" HorizontalAlignment="Left" Height="28" Margin="361,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/iris_box.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="jaguar_button" Content="" HorizontalAlignment="Left" Height="28" Margin="422,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/jaguar_box.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="jivoder_box_button" Content="" HorizontalAlignment="Left" Height="28" Margin="422,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/jivoder_box.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="mana_stealer_button" Content="" HorizontalAlignment="Left" Height="28" Margin="491,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/mana_stealer.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="medic_box_button" Content="" HorizontalAlignment="Left" Height="28" Margin="491,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/medic_box.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="osheinic_button" Content="" HorizontalAlignment="Left" Height="28" Margin="555,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/osheinik.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="platinum_iris_button" Content="" HorizontalAlignment="Left" Height="28" Margin="555,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/platinum_iris.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="rune_of_protection_1_button" Content="" HorizontalAlignment="Left" Height="28" Margin="618,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/rune_of_protection_1.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="health_stealer_button" Content="" HorizontalAlignment="Left" Height="28" Margin="618,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/steal_h.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="super_stone_button" Content="" HorizontalAlignment="Left" Height="28" Margin="682,57,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/super_stone.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="adrenaline_button" Content="" HorizontalAlignment="Left" Height="28" Margin="682,103,0,0" VerticalAlignment="Top" Width="31" IsEnabled="False">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons/adrenaline.jpg" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
